@@ -1,0 +1,308 @@
+/* S4N Donate System Static Website - Custom Styles on top of Tocas UI 5.0 */
+:root {
+    --site-bg: #fbfbfd;
+    --card-bg: #ffffff;
+    --text-primary: #1d1d1f;
+    --text-secondary: #515154;
+    --border-color: #e5e5ea;
+    --accent-brand: #F28500;
+    --accent-brand-hover: #d97700;
+}
+
+body {
+    font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--site-bg);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Link Default Styling */
+a {
+    color: var(--accent-brand);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent-brand-hover);
+}
+
+/* Sticky Header Navbar */
+.site-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.site-navbar .navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 0;
+}
+
+.site-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.site-brand:hover {
+    transform: translateY(-1px);
+    color: var(--text-primary);
+}
+
+.site-brand .brand-logo {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.site-brand .brand-badge {
+    background: var(--accent-brand);
+    color: #ffffff;
+    font-size: 0.75rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Navbar Navigation Links with Hover Dynamic Card Effect */
+.site-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.site-nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.4rem 0.85rem;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.site-nav-links a:hover {
+    color: var(--accent-brand);
+    background: rgba(242, 133, 0, 0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(242, 133, 0, 0.12);
+}
+
+.site-nav-links a.active {
+    color: var(--accent-brand);
+    font-weight: 700;
+    background: rgba(242, 133, 0, 0.12);
+}
+
+/* Global Button Centering, No Underline & Hover Dynamic Card Effect */
+.ts-button,
+a.ts-button,
+button.ts-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+    gap: 0.5rem !important;
+    text-decoration: none !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease !important;
+}
+
+.ts-button:hover,
+a.ts-button:hover,
+button.ts-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(242, 133, 0, 0.2) !important;
+    text-decoration: none !important;
+}
+
+.ts-button.is-primary,
+a.ts-button.is-primary {
+    background-color: var(--accent-brand) !important;
+    border-color: var(--accent-brand) !important;
+    color: #ffffff !important;
+}
+
+.ts-button.is-primary:hover,
+a.ts-button.is-primary:hover {
+    background-color: var(--accent-brand-hover) !important;
+    border-color: var(--accent-brand-hover) !important;
+}
+
+.ts-button.is-outlined,
+a.ts-button.is-outlined {
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+.ts-button.is-outlined:hover,
+a.ts-button.is-outlined:hover {
+    border-color: var(--accent-brand) !important;
+    color: var(--accent-brand) !important;
+}
+
+/* Table Vertical Alignment */
+.ts-table td,
+.ts-table th {
+    vertical-align: middle !important;
+}
+
+/* Page Hero Section */
+.hero-section {
+    padding: 4.5rem 0 3rem 0;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    margin-bottom: 1.25rem;
+    color: var(--text-primary);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 680px;
+    margin: 0 auto 2rem auto;
+    line-height: 1.6;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Custom Component Cards with Dynamic Effect */
+.feature-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.75rem;
+    height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(242, 133, 0, 0.12);
+}
+
+.feature-card .card-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: rgba(242, 133, 0, 0.1);
+    color: var(--accent-brand);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.feature-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.6rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Tocas Badge Override with Accent Color */
+.ts-badge.is-primary {
+    background-color: var(--accent-brand) !important;
+    color: #ffffff !important;
+}
+
+/* Code Snippet Displays */
+.code-snippet-box {
+    background: #1e1e24;
+    color: #e0e0e0;
+    border-radius: 8px;
+    padding: 1.25rem;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    overflow-x: auto;
+    margin-top: 0.75rem;
+}
+
+.code-snippet-box code {
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/* Footer Section */
+.site-footer {
+    margin-top: auto;
+    background: #ffffff;
+    border-top: 1px solid var(--border-color);
+    padding: 2.5rem 0 1.5rem 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.site-footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.site-footer a:hover,
+.site-footer a:focus,
+.site-footer a:active {
+    color: var(--accent-brand);
+    text-decoration: underline;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+    .site-navbar .navbar-inner {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .site-nav-links {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+}

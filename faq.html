@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常見問題與授權說明 | S4N Donate System</title>
+    <meta name="description" content="解答關於 S4N Donate System 贊助平台的常見疑問，包含 OBS 設定、金流整合與 GNU GPLv3 開源授權條款。">
+    <!-- Favicon -->
+    <link rel="icon" href="https://img.uwub.tw/Salmon4neko%20Studio_%E6%AD%A3%E6%96%B9%E5%BD%A2%E5%9C%96%E6%A8%99.png" type="image/png">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Tocas UI 5.0 CSS & JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/5.0.0/tocas.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/5.0.0/tocas.min.js"></script>
+    <!-- Google Fonts: Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 頂部固定導覽列 -->
+    <header class="site-navbar">
+        <div class="ts-container navbar-inner">
+            <a href="index.html" class="site-brand">
+                <span>S4N Donate System</span>
+                <span class="brand-badge">v1.0</span>
+            </a>
+            <nav class="site-nav-links" id="main-navigation">
+                <a href="index.html">首頁總覽</a>
+                <a href="features.html">核心特色</a>
+                <a href="deploy.html">部署指南</a>
+                <a href="faq.html" class="active">常見問題</a>
+                <a href="https://github.com/Salmon4neko-Studio/S4N-Donate-System" target="_blank" rel="noopener" class="ts-button is-outlined is-short">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主要內容區塊 -->
+    <main style="padding: 3rem 0;">
+        <div class="ts-container">
+            <!-- 標題 -->
+            <div style="margin-bottom: 3rem; text-align: center;">
+                <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 0.75rem;">常見問題與開源授權</h1>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                    為您解答關於 S4N Donate System 的使用疑慮與技術授權細節。
+                </p>
+            </div>
+
+            <!-- FAQ 折疊組件區塊 -->
+            <div style="margin-bottom: 4rem;">
+                <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1.5rem;">常見問題 (FAQ)</h2>
+                
+                <details class="ts-accordion" open style="margin-bottom: 1rem;">
+                    <summary class="ts-summary" style="font-weight: 700; font-size: 1.05rem;">S4N Donate System 是免費且開源的嗎？</summary>
+                    <div class="ts-content" style="color: var(--text-secondary); line-height: 1.7;">
+                        是的，S4N Donate System 是一款 100% 免費且開源的實況主贊助平台，採用 <strong>GNU General Public License v3.0 (GPLv3)</strong> 授權發布。您可以自由下戴、部署、修改原始碼。
+                    </div>
+                </details>
+
+                <details class="ts-accordion" style="margin-bottom: 1rem;">
+                    <summary class="ts-summary" style="font-weight: 700; font-size: 1.05rem;">如何在 OBS Studio 中加入贊助通知廣播？</summary>
+                    <div class="ts-content" style="color: var(--text-secondary); line-height: 1.7;">
+                        在 OBS Studio 的「來源」區塊點擊新增「瀏覽器 (Browser)」，將 URL 設定為您的部署網址加上 <code class="ts-code">/obs</code> (例如 <code class="ts-code">https://your-domain.zeabur.app/obs</code>)，並將寬度設定為 1920、高度設定為 1080 即可。當有觀眾進行贊助時，通知將會自動以透明背景彈出播放。
+                    </div>
+                </details>
+
+                <details class="ts-accordion" style="margin-bottom: 1rem;">
+                    <summary class="ts-summary" style="font-weight: 700; font-size: 1.05rem;">我可以同時使用綠界 (ECPay) 與歐付寶 (O'Pay) 嗎？</summary>
+                    <div class="ts-content" style="color: var(--text-secondary); line-height: 1.7;">
+                        可以！系統支援填寫綠界或歐付寶的商店 API 憑證。在公開贊助頁面中，觀眾可以自由選擇習慣的金流管道進行線上支付。
+                    </div>
+                </details>
+
+                <details class="ts-accordion" style="margin-bottom: 1rem;">
+                    <summary class="ts-summary" style="font-weight: 700; font-size: 1.05rem;">我完全沒有維護 PostgreSQL 資料庫經驗，該如何處理？</summary>
+                    <div class="ts-content" style="color: var(--text-secondary); line-height: 1.7;">
+                        極力推薦使用 <a href="https://zeabur.com/templates/PZ7FR9?referralCode=LokiSalmonNeko" target="_blank" rel="noopener">Zeabur 部署範本</a>。Zeabur 會自動為您佈建全託管的 PostgreSQL 資料庫並完成連線，免去繁瑣的 SQL 設定與資料庫維護。
+                    </div>
+                </details>
+
+                <details class="ts-accordion" style="margin-bottom: 1rem;">
+                    <summary class="ts-summary" style="font-weight: 700; font-size: 1.05rem;">如何修改廣播動畫的音效或顯示秒數？</summary>
+                    <div class="ts-content" style="color: var(--text-secondary); line-height: 1.7;">
+                        請造訪 <code class="ts-code">/login</code> 輸入設定的管理者憑證進入 <code class="ts-code">/dashboard</code> 後台。在後台設定選單中即可線上記時修改彈出時間、廣播圖示、字型與提示音效。
+                    </div>
+                </details>
+            </div>
+
+            <!-- 開源授權區塊 -->
+            <div id="license" class="ts-box" style="margin-bottom: 4rem;">
+                <div class="ts-content" style="padding: 2.25rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                        <span class="ts-badge is-primary">GNU GPLv3</span>
+                        <h2 style="font-size: 1.5rem; font-weight: 700; margin: 0;">開源授權條款</h2>
+                    </div>
+                    <p style="color: var(--text-secondary); line-height: 1.7;">
+                        本專案原始碼完全遵循 <strong>GNU General Public License v3.0 (GPLv3)</strong> 授權發布。
+                    </p>
+                    <ul style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+                        <li><strong>商業與個人使用：</strong>您可自由在個人或商業環境中安裝與運行本系統。</li>
+                        <li><strong>原始碼修改與散佈：</strong>若您基於本專案進行修改並公開散佈，衍生作品亦必須採用 GPLv3 授權並保持開源。</li>
+                        <li><strong>完整授權文件：</strong>詳細條款請參閱 GitHub 儲存庫中的 <a href="https://github.com/Salmon4neko-Studio/S4N-Donate-System/blob/main/LICENSE" target="_blank" rel="noopener">LICENSE 檔案</a> 與 <a href="https://github.com/Salmon4neko-Studio/S4N-Donate-System/blob/main/LICENSE_zh_TW.md" target="_blank" rel="noopener">繁體中文授權說明</a>。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 社群與貢獻區塊 -->
+            <div style="text-align: center; padding: 2rem 0;">
+                <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;">加入社群與參與貢獻</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">
+                    若您在使用的過程遇到問題或有功能建議，歡迎至 GitHub 提出 Issue 或 Pull Request！
+                </p>
+                <a href="https://github.com/Salmon4neko-Studio/S4N-Donate-System" target="_blank" rel="noopener" class="ts-button is-primary is-large">
+                    <i class="fa-brands fa-github"></i> 前往 GitHub 參與貢獻
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 頁尾資訊 -->
+    <footer class="site-footer">
+        <div class="ts-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <strong>S4N Donate System</strong> &copy; <a href="https://salmon4neko.com/" target="_blank" rel="noopener">Salmon4neko Studio 鮭貓工作室</a>.
+                    <br>
+                    <span style="font-size: 0.85rem; color: #86868b;">採用 <a href="faq.html#license">GNU General Public License v3.0</a> 開源授權。</span>
+                </div>
+                <div style="display: flex; gap: 1.25rem;">
+                    <a href="https://github.com/Salmon4neko-Studio/S4N-Donate-System" target="_blank" rel="noopener">GitHub 儲存庫</a>
+                    <a href="https://hub.docker.com/r/lokisalmonneko/s4n-donate-system" target="_blank" rel="noopener">Docker Hub</a>
+                    <a href="https://zeabur.com/templates/PZ7FR9" target="_blank" rel="noopener">Zeabur 範本</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>部署指南 (Zeabur / Docker) | S4N Donate System</title>
+    <meta name="description" content="了解如何透過 Zeabur Template 一鍵部署或使用 Docker Compose 快速啟動 S4N Donate System 贊助平台。">
+    <!-- Favicon -->
+    <link rel="icon" href="https://img.uwub.tw/Salmon4neko%20Studio_%E6%AD%A3%E6%96%B9%E5%BD%A2%E5%9C%96%E6%A8%99.png" type="image/png">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Tocas UI 5.0 CSS & JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/5.0.0/tocas.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/5.0.0/tocas.min.js"></script>
+    <!-- Google Fonts: Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 頂部固定導覽列 -->
+    <header class="site-navbar">
+        <div class="ts-container navbar-inner">
+            <a href="index.html" class="site-brand">
+                <span>S4N Donate System</span>
+                <span class="brand-badge">v1.0</span>
+            </a>
+            <nav class="site-nav-links" id="main-navigation">
+                <a href="index.html">首頁總覽</a>
+                <a href="features.html">核心特色</a>
+                <a href="deploy.html" class="active">部署指南</a>
+                <a href="faq.html">常見問題</a>
+                <a href="https://github.com/Salmon4neko-Studio/S4N-Donate-System" target="_blank" rel="noopener" class="ts-button is-outlined is-short">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主要內容區塊 -->
+    <main style="padding: 3rem 0;">
+        <div class="ts-container">
+            <!-- 標題 -->
+            <div style="margin-bottom: 3rem; text-align: center;">
+                <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 0.75rem;">系統部署指南</h1>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+                    提供 Zeabur 雲端一鍵部署與 Docker Compose 伺服器快速建立方案。
+                </p>
+            </div>
+
+            <!-- 方法一：Zeabur 部署 -->
+            <div class="ts-box" style="margin-bottom: 3rem;">
+                <div class="ts-content" style="padding: 2.25rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div>
+                            <span class="ts-badge is-primary">最推薦</span>
+                            <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 0.5rem; margin-bottom: 0;">Zeabur 一鍵雲端部署</h2>
+                        </div>
+                        <a href="https://zeabur.com/templates/PZ7FR9?referralCode=LokiSalmonNeko" target="_blank" rel="noopener" class="ts-button is-primary" style="text-decoration: none !important;">
+                            <i class="fa-solid fa-bolt"></i> 前往 Zeabur 範本部署 &rarr;
+                        </a>
+                    </div>
+                    
+                    <ol style="color: var(--text-secondary); line-height: 1.8; font-size: 1rem; padding-left: 1.2rem;">
+                        <li>點擊上方的 <strong>前往 Zeabur 範本部署</strong> 按鈕跳轉至 Zeabur 主控台。</li>
+                        <li>Zeabur 將自動引導建立專案並配置獨立 <strong>PostgreSQL 資料庫</strong>。</li>
+                        <li>在環境變數設定區域填寫必要變數（例如 <code class="ts-code">ADMIN_USERNAME</code>, <code class="ts-code">ADMIN_PASSWORD</code>, <code class="ts-code">JWT_SECRET</code>）。</li>
+                        <li>點擊部署，完成後即可獲得免費授權的 HTTPS 子網域（例如 <code class="ts-code">*.zeabur.app</code>）。</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- 方法二：Docker Compose 部署 -->
+            <div class="ts-box" style="margin-bottom: 3rem;">
+                <div class="ts-content" style="padding: 2.25rem;">
+                    <span class="ts-badge is-secondary" style="margin-bottom: 0.75rem;">自託管方案</span>
+                    <h2 style="font-size: 1.5rem; font-weight: 700; margin-top: 0.25rem;">Docker Compose 部署</h2>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">
+                        官方 Docker Image: <code class="ts-code">lokisalmonneko/s4n-donate-system:latest</code>。在您的 VPS 伺服器建立 <code class="ts-code">docker-compose.yml</code>：
+                    </p>
+
+                    <div class="code-snippet-box">
+<code>version: '3.8'
+
+services:
+  app:
+    image: lokisalmonneko/s4n-donate-system:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://donate_user:secretpass@db:5432/donate_db
+      - ADMIN_USERNAME=admin
+      - ADMIN_PASSWORD=ChangeThisPassword123
+      - JWT_SECRET=SuperRandomSecretKey98765
+      - NEXT_PUBLIC_BASE_URL=https://your-domain.com
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=donate_user
+      - POSTGRES_PASSWORD=secretpass
+      - POSTGRES_DB=donate_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:</code>
+                    </div>
+
+                    <p style="margin-top: 1.25rem; color: var(--text-secondary);">
+                        啟動指令：
+                    </p>
+                    <div class="code-snippet-box">
+<code>docker-compose up -d</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 環境變數說明表 -->
+            <div style="margin-bottom: 2rem;">
+                <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1.25rem;">🔧 環境變數說明</h2>
+                <div class="ts-box">
+                    <div class="ts-content" style="padding: 0;">
+                        <table class="ts-table is-striped is-celled">
+                            <thead>
+                                <tr>
+                                    <th style="width: 22%;">變數名稱</th>
+                                    <th style="width: 10%; text-align: center;">必填</th>
+                                    <th style="width: 40%;">說明</th>
+                                    <th style="width: 28%;">範例 / 預設值</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="ts-code">DATABASE_URL</code></td>
+                                    <td style="text-align: center;"><span class="ts-badge is-danger">是</span></td>
+                                    <td>PostgreSQL 資料庫連線字串</td>
+                                    <td><code class="ts-code">postgresql://user:pass@db:5432/donate</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code class="ts-code">ADMIN_USERNAME</code></td>
+                                    <td style="text-align: center;"><span class="ts-badge is-danger">是</span></td>
+                                    <td>後台管理員登入帳號</td>
+                                    <td><code class="ts-code">admin</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code class="ts-code">ADMIN_PASSWORD</code></td>
+                                    <td style="text-align: center;"><span class="ts-badge is-danger">是</span></td>
+                                    <td>後台管理員登入密碼</td>
+                                    <td><code class="ts-code">password</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code class="ts-code">JWT_SECRET</code></td>
+                                    <td style="text-align: center;"><span class="ts-badge is-danger">是</span></td>
+                                    <td>JWT 加密密鑰 (用於身分驗證)</td>
+                                    <td>請設定強隨機字串</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="ts-code">NEXT_PUBLIC_BASE_URL</code></td>
+                                    <td style="text-align: center;"><span class="ts-badge is-danger">是</span></td>
+                                    <td>網站對外網址 (金流 callback 回調用)</td>
+                                    <td><code class="ts-code">http://localhost:3000</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code class="ts-code">ECPAY_MERCHANT_ID</code></td>
+                                    <td style="text-align: center;"><span class="ts-badge is-light">否</span></td>
+                                    <td>綠界商店代號</td>
+                                    <td><code class="ts-code">2000132</code> (測試用代號)</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="ts-code">ECPAY_HASH_KEY</code></td>
+                                    <td style="text-align: center;"><span class="ts-badge is-light">否</span></td>
+                                    <td>綠界 Hash Key</td>
+                                    <td><span style="color: var(--text-secondary);">-</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code class="ts-code">ECPAY_HASH_IV</code></td>
+                                    <td style="text-align: center;"><span class="ts-badge is-light">否</span></td>
+                                    <td>綠界 Hash IV</td>
+                                    <td><span style="color: var(--text-secondary);">-</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code class="ts-code">OPAY_MERCHANT_ID</code></td>
+                                    <td style="text-align: center;"><span class="ts-badge is-light">否</span></td>
+                                    <td>歐付寶商店代號</td>
+                                    <td><span style="color: var(--text-secondary);">-</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code class="ts-code">OPAY_HASH_KEY</code></td>
+                                    <td style="text-align: center;"><span class="ts-badge is-light">否</span></td>
+                                    <td>歐付寶 Hash Key</td>
+                                    <td><span style="color: var(--text-secondary);">-</span></td>
+                                </tr>
+                                <tr>
+                                    <td><code class="ts-code">OPAY_HASH_IV</code></td>
+                                    <td style="text-align: center;"><span class="ts-badge is-light">否</span></td>
+                                    <td>歐付寶 Hash IV</td>
+                                    <td><span style="color: var(--text-secondary);">-</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 頁尾資訊 -->
+    <footer class="site-footer">
+        <div class="ts-container">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <strong>S4N Donate System</strong> &copy; <a href="https://salmon4neko.com/" target="_blank" rel="noopener">Salmon4neko Studio 鮭貓工作室</a>.
+                    <br>
+                    <span style="font-size: 0.85rem; color: #86868b;">採用 <a href="faq.html#license">GNU General Public License v3.0</a> 開源授權。</span>
+                </div>
+                <div style="display: flex; gap: 1.25rem;">
+                    <a href="https://github.com/Salmon4neko-Studio/S4N-Donate-System" target="_blank" rel="noopener">GitHub 儲存庫</a>
+                    <a href="https://hub.docker.com/r/lokisalmonneko/s4n-donate-system" target="_blank" rel="noopener">Docker Hub</a>
+                    <a href="https://zeabur.com/templates/PZ7FR9" target="_blank" rel="noopener">Zeabur 範本</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
