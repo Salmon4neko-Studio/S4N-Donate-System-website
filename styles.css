@@ -287,7 +287,7 @@ a.ts-button.is-outlined:hover {
 .site-footer a:focus,
 .site-footer a:active {
     color: var(--accent-brand);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /* Mobile Navbar Toggle Button (Hidden on Desktop) */
