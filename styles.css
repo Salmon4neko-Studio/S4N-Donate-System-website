@@ -46,7 +46,8 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.85rem 0;
+    padding: 0.85rem 1.25rem;
+    box-sizing: border-box;
 }
 
 .site-brand {
@@ -289,20 +290,272 @@ a.ts-button.is-outlined:hover {
     text-decoration: underline;
 }
 
-/* Responsive utilities */
-@media (max-width: 768px) {
-    .site-navbar .navbar-inner {
-        flex-direction: column;
-        gap: 0.8rem;
+/* Mobile Navbar Toggle Button (Hidden on Desktop) */
+.mobile-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    cursor: pointer;
+    color: var(--text-primary);
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.mobile-toggle:hover,
+.mobile-toggle:focus {
+    background: rgba(242, 133, 0, 0.08);
+    border-color: var(--accent-brand);
+    color: var(--accent-brand);
+    outline: none;
+}
+
+/* Keyframes for navbar drawer slide down */
+@keyframes navSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
     }
-    
-    .site-nav-links {
-        gap: 0.5rem;
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive utilities & Mobile Adjustments */
+@media (max-width: 768px) {
+
+    /* Navbar Mobile Layout & Offcanvas Drawer */
+    .site-navbar .navbar-inner {
+        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 1.25rem;
+    }
+
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .site-nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid var(--border-color);
+        margin-top: 0.75rem;
+    }
+
+    .site-nav-links.is-open {
+        display: flex;
+        animation: navSlideDown 0.25s ease-out forwards;
+    }
+
+    .site-nav-links a {
+        padding: 0.65rem 1rem;
+        justify-content: flex-start;
+        width: 100%;
+        box-sizing: border-box;
+        min-height: 44px;
+        font-size: 1rem;
+    }
+
+    /* Hero Section Compact & Touch Buttons */
+    .hero-section {
+        padding: 2.5rem 0 1.5rem 0;
     }
 
     .hero-title {
-        font-size: 2rem;
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
     }
+
+    .hero-subtitle {
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.75rem;
+    }
+
+    .hero-actions .ts-button {
+        width: 100% !important;
+        box-sizing: border-box;
+        min-height: 46px;
+        font-size: 1rem !important;
+    }
+
+    /* Card-based Table Transformation for Mobile (< 768px) */
+    table.responsive-card-table,
+    table.responsive-card-table tbody,
+    table.responsive-card-table tr,
+    table.responsive-card-table td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    table.responsive-card-table thead {
+        display: none;
+    }
+
+    table.responsive-card-table tr {
+        margin-bottom: 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        background: var(--card-bg);
+        padding: 0.75rem 1rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    table.responsive-card-table tr:last-child {
+        margin-bottom: 0;
+    }
+
+    table.responsive-card-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.6rem 0 !important;
+        border-bottom: 1px dashed var(--border-color) !important;
+        border-top: none !important;
+        border-left: none !important;
+        border-right: none !important;
+        font-size: 0.92rem;
+        text-align: right;
+        word-break: break-word;
+    }
+
+    table.responsive-card-table td:last-child {
+        border-bottom: none !important;
+    }
+
+    table.responsive-card-table td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-right: 1rem;
+        text-align: left;
+        flex-shrink: 0;
+    }
+
+    /* Footer Mobile Centering */
+    .site-footer {
+        padding: 2rem 0 1.5rem 0;
+        text-align: center;
+    }
+
+    .site-footer .ts-container>div {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 1.25rem;
+    }
+
+    .site-footer div {
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Hide elements on mobile */
+    .mobile-hidden {
+        display: none !important;
+    }
+
+    /* Mobile Single Column Grid for Feature Cards - Full Width Fix */
+    .ts-grid.is-3-columns,
+    .ts-grid.is-2-columns,
+    .ts-grid.is-stackable {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .ts-grid.is-3-columns > .column,
+    .ts-grid.is-2-columns > .column,
+    .ts-grid.is-stackable > .column {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-bottom: 1.25rem;
+    }
+
+    .ts-grid.is-3-columns > .column:last-child,
+    .ts-grid.is-2-columns > .column:last-child,
+    .ts-grid.is-stackable > .column:last-child {
+        margin-bottom: 0;
+    }
+
+    .feature-card {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* FAQ Box (箱子類) Modern Styling */
+details.faq-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+details.faq-box:hover {
+    border-color: var(--accent-brand);
+    box-shadow: 0 4px 16px rgba(242, 133, 0, 0.08);
+}
+
+details.faq-box summary {
+    padding: 1.2rem 1.5rem;
+    font-weight: 700;
+    font-size: 1.08rem;
+    cursor: pointer;
+    color: var(--text-primary);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+}
+
+details.faq-box summary::-webkit-details-marker {
+    display: none;
+}
+
+details.faq-box summary::after {
+    content: "\f078";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    transition: transform 0.2s ease;
+    margin-left: 1rem;
+}
+
+details.faq-box[open] summary::after {
+    transform: rotate(180deg);
+    color: var(--accent-brand);
+}
+
+details.faq-box .faq-content {
+    padding: 1.2rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+    background: #fafafc;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 0.98rem;
 }

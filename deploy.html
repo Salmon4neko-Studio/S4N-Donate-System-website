@@ -23,9 +23,13 @@
     <header class="site-navbar">
         <div class="ts-container navbar-inner">
             <a href="index.html" class="site-brand">
+                <img src="https://img.uwub.tw/Salmon4neko%20Studio_%E6%AD%A3%E6%96%B9%E5%BD%A2%E5%9C%96%E6%A8%99.png" alt="S4N Logo" class="brand-logo">
                 <span>S4N Donate System</span>
                 <span class="brand-badge">v1.0</span>
             </a>
+            <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="切換主導覽選單">
+                <i class="fa-solid fa-bars"></i>
+            </button>
             <nav class="site-nav-links" id="main-navigation">
                 <a href="index.html">首頁總覽</a>
                 <a href="features.html">核心特色</a>
@@ -124,7 +128,7 @@ volumes:
                 <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1.25rem;">🔧 環境變數說明</h2>
                 <div class="ts-box">
                     <div class="ts-content" style="padding: 0;">
-                        <table class="ts-table is-striped is-celled">
+                        <table class="ts-table is-striped is-celled responsive-card-table">
                             <thead>
                                 <tr>
                                     <th style="width: 22%;">變數名稱</th>
@@ -135,70 +139,70 @@ volumes:
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><code class="ts-code">DATABASE_URL</code></td>
-                                    <td style="text-align: center;"><span class="ts-badge is-danger">是</span></td>
-                                    <td>PostgreSQL 資料庫連線字串</td>
-                                    <td><code class="ts-code">postgresql://user:pass@db:5432/donate</code></td>
+                                    <td data-label="變數名稱"><code class="ts-code">DATABASE_URL</code></td>
+                                    <td data-label="必填" style="text-align: center;"><span class="ts-badge is-danger">是</span></td>
+                                    <td data-label="說明">PostgreSQL 資料庫連線字串</td>
+                                    <td data-label="範例 / 預設值"><code class="ts-code">postgresql://user:pass@db:5432/donate</code></td>
                                 </tr>
                                 <tr>
-                                    <td><code class="ts-code">ADMIN_USERNAME</code></td>
-                                    <td style="text-align: center;"><span class="ts-badge is-danger">是</span></td>
-                                    <td>後台管理員登入帳號</td>
-                                    <td><code class="ts-code">admin</code></td>
+                                    <td data-label="變數名稱"><code class="ts-code">ADMIN_USERNAME</code></td>
+                                    <td data-label="必填" style="text-align: center;"><span class="ts-badge is-danger">是</span></td>
+                                    <td data-label="說明">後台管理員登入帳號</td>
+                                    <td data-label="範例 / 預設值"><code class="ts-code">admin</code></td>
                                 </tr>
                                 <tr>
-                                    <td><code class="ts-code">ADMIN_PASSWORD</code></td>
-                                    <td style="text-align: center;"><span class="ts-badge is-danger">是</span></td>
-                                    <td>後台管理員登入密碼</td>
-                                    <td><code class="ts-code">password</code></td>
+                                    <td data-label="變數名稱"><code class="ts-code">ADMIN_PASSWORD</code></td>
+                                    <td data-label="必填" style="text-align: center;"><span class="ts-badge is-danger">是</span></td>
+                                    <td data-label="說明">後台管理員登入密碼</td>
+                                    <td data-label="範例 / 預設值"><code class="ts-code">password</code></td>
                                 </tr>
                                 <tr>
-                                    <td><code class="ts-code">JWT_SECRET</code></td>
-                                    <td style="text-align: center;"><span class="ts-badge is-danger">是</span></td>
-                                    <td>JWT 加密密鑰 (用於身分驗證)</td>
-                                    <td>請設定強隨機字串</td>
+                                    <td data-label="變數名稱"><code class="ts-code">JWT_SECRET</code></td>
+                                    <td data-label="必填" style="text-align: center;"><span class="ts-badge is-danger">是</span></td>
+                                    <td data-label="說明">JWT 加密密鑰 (用於身分驗證)</td>
+                                    <td data-label="範例 / 預設值">請設定強隨機字串</td>
                                 </tr>
                                 <tr>
-                                    <td><code class="ts-code">NEXT_PUBLIC_BASE_URL</code></td>
-                                    <td style="text-align: center;"><span class="ts-badge is-danger">是</span></td>
-                                    <td>網站對外網址 (金流 callback 回調用)</td>
-                                    <td><code class="ts-code">http://localhost:3000</code></td>
+                                    <td data-label="變數名稱"><code class="ts-code">NEXT_PUBLIC_BASE_URL</code></td>
+                                    <td data-label="必填" style="text-align: center;"><span class="ts-badge is-danger">是</span></td>
+                                    <td data-label="說明">網站對外網址 (金流 callback 回調用)</td>
+                                    <td data-label="範例 / 預設值"><code class="ts-code">http://localhost:3000</code></td>
                                 </tr>
                                 <tr>
-                                    <td><code class="ts-code">ECPAY_MERCHANT_ID</code></td>
-                                    <td style="text-align: center;"><span class="ts-badge is-light">否</span></td>
-                                    <td>綠界商店代號</td>
-                                    <td><code class="ts-code">2000132</code> (測試用代號)</td>
+                                    <td data-label="變數名稱"><code class="ts-code">ECPAY_MERCHANT_ID</code></td>
+                                    <td data-label="必填" style="text-align: center;"><span class="ts-badge is-light">否</span></td>
+                                    <td data-label="說明">綠界商店代號</td>
+                                    <td data-label="範例 / 預設值"><code class="ts-code">2000132</code> (測試用代號)</td>
                                 </tr>
                                 <tr>
-                                    <td><code class="ts-code">ECPAY_HASH_KEY</code></td>
-                                    <td style="text-align: center;"><span class="ts-badge is-light">否</span></td>
-                                    <td>綠界 Hash Key</td>
-                                    <td><span style="color: var(--text-secondary);">-</span></td>
+                                    <td data-label="變數名稱"><code class="ts-code">ECPAY_HASH_KEY</code></td>
+                                    <td data-label="必填" style="text-align: center;"><span class="ts-badge is-light">否</span></td>
+                                    <td data-label="說明">綠界 Hash Key</td>
+                                    <td data-label="範例 / 預設值"><span style="color: var(--text-secondary);">-</span></td>
                                 </tr>
                                 <tr>
-                                    <td><code class="ts-code">ECPAY_HASH_IV</code></td>
-                                    <td style="text-align: center;"><span class="ts-badge is-light">否</span></td>
-                                    <td>綠界 Hash IV</td>
-                                    <td><span style="color: var(--text-secondary);">-</span></td>
+                                    <td data-label="變數名稱"><code class="ts-code">ECPAY_HASH_IV</code></td>
+                                    <td data-label="必填" style="text-align: center;"><span class="ts-badge is-light">否</span></td>
+                                    <td data-label="說明">綠界 Hash IV</td>
+                                    <td data-label="範例 / 預設值"><span style="color: var(--text-secondary);">-</span></td>
                                 </tr>
                                 <tr>
-                                    <td><code class="ts-code">OPAY_MERCHANT_ID</code></td>
-                                    <td style="text-align: center;"><span class="ts-badge is-light">否</span></td>
-                                    <td>歐付寶商店代號</td>
-                                    <td><span style="color: var(--text-secondary);">-</span></td>
+                                    <td data-label="變數名稱"><code class="ts-code">OPAY_MERCHANT_ID</code></td>
+                                    <td data-label="必填" style="text-align: center;"><span class="ts-badge is-light">否</span></td>
+                                    <td data-label="說明">歐付寶商店代號</td>
+                                    <td data-label="範例 / 預設值"><span style="color: var(--text-secondary);">-</span></td>
                                 </tr>
                                 <tr>
-                                    <td><code class="ts-code">OPAY_HASH_KEY</code></td>
-                                    <td style="text-align: center;"><span class="ts-badge is-light">否</span></td>
-                                    <td>歐付寶 Hash Key</td>
-                                    <td><span style="color: var(--text-secondary);">-</span></td>
+                                    <td data-label="變數名稱"><code class="ts-code">OPAY_HASH_KEY</code></td>
+                                    <td data-label="必填" style="text-align: center;"><span class="ts-badge is-light">否</span></td>
+                                    <td data-label="說明">歐付寶 Hash Key</td>
+                                    <td data-label="範例 / 預設值"><span style="color: var(--text-secondary);">-</span></td>
                                 </tr>
                                 <tr>
-                                    <td><code class="ts-code">OPAY_HASH_IV</code></td>
-                                    <td style="text-align: center;"><span class="ts-badge is-light">否</span></td>
-                                    <td>歐付寶 Hash IV</td>
-                                    <td><span style="color: var(--text-secondary);">-</span></td>
+                                    <td data-label="變數名稱"><code class="ts-code">OPAY_HASH_IV</code></td>
+                                    <td data-label="必填" style="text-align: center;"><span class="ts-badge is-light">否</span></td>
+                                    <td data-label="說明">歐付寶 Hash IV</td>
+                                    <td data-label="範例 / 預設值"><span style="color: var(--text-secondary);">-</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -213,11 +217,11 @@ volumes:
         <div class="ts-container">
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
                 <div>
-                    <strong>S4N Donate System</strong> &copy; <a href="https://salmon4neko.com/" target="_blank" rel="noopener">Salmon4neko Studio 鮭貓工作室</a>.
-                    <br>
-                    <span style="font-size: 0.85rem; color: #86868b;">採用 <a href="faq.html#license">GNU General Public License v3.0</a> 開源授權。</span>
+                    <strong style="display: block; font-size: 1rem; margin-bottom: 0.25rem;">S4N Donate System</strong>
+                    <div>&copy; <a href="https://salmon4neko.com/" target="_blank" rel="noopener">Salmon4neko Studio 鮭貓工作室</a>.</div>
+                    <div style="font-size: 0.85rem; color: #86868b; margin-top: 0.2rem;">採用 <a href="faq.html#license">GNU General Public License v3.0</a> 開源授權。</div>
                 </div>
-                <div style="display: flex; gap: 1.25rem;">
+                <div style="display: flex; gap: 1.25rem; flex-wrap: wrap; justify-content: center;">
                     <a href="https://github.com/Salmon4neko-Studio/S4N-Donate-System" target="_blank" rel="noopener">GitHub 儲存庫</a>
                     <a href="https://hub.docker.com/r/lokisalmonneko/s4n-donate-system" target="_blank" rel="noopener">Docker Hub</a>
                     <a href="https://zeabur.com/templates/PZ7FR9" target="_blank" rel="noopener">Zeabur 範本</a>
@@ -225,5 +229,22 @@ volumes:
             </div>
         </div>
     </footer>
+
+    <!-- 行動端導覽列開關腳本 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleBtn = document.getElementById('mobile-menu-toggle');
+            const navLinks = document.getElementById('main-navigation');
+            if (toggleBtn && navLinks) {
+                toggleBtn.addEventListener('click', function () {
+                    const isOpen = navLinks.classList.toggle('is-open');
+                    const icon = toggleBtn.querySelector('i');
+                    if (icon) {
+                        icon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

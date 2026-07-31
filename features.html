@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>核心特色與系統架構 | S4N Donate System</title>
     <meta name="description" content="深入了解 S4N Donate System 的核心功能特色，包含 ECPay/O'Pay 第三方金流整合、OBS 瀏覽器來源廣播與獨立管理後台。">
     <!-- Favicon -->
-    <link rel="icon" href="https://img.uwub.tw/Salmon4neko%20Studio_%E6%AD%A3%E6%96%B9%E5%BD%A2%E5%9C%96%E6%A8%99.png" type="image/png">
+    <link rel="icon" href="https://img.uwub.tw/Salmon4neko%20Studio_%E6%AD%A3%E6%96%B9%E5%BD%A2%E5%9C%96%E6%A8%99.png"
+        type="image/png">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Tocas UI 5.0 CSS & JS -->
@@ -15,9 +17,11 @@
     <!-- Google Fonts: Noto Sans TC -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <!-- 頂部固定導覽列 -->
     <header class="site-navbar">
@@ -26,12 +30,16 @@
                 <span>S4N Donate System</span>
                 <span class="brand-badge">v1.0</span>
             </a>
+            <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="切換主導覽選單">
+                <i class="fa-solid fa-bars"></i>
+            </button>
             <nav class="site-nav-links" id="main-navigation">
                 <a href="index.html">首頁總覽</a>
                 <a href="features.html" class="active">核心特色</a>
                 <a href="deploy.html">部署指南</a>
                 <a href="faq.html">常見問題</a>
-                <a href="https://github.com/Salmon4neko-Studio/S4N-Donate-System" target="_blank" rel="noopener" class="ts-button is-outlined is-short">
+                <a href="https://github.com/Salmon4neko-Studio/S4N-Donate-System" target="_blank" rel="noopener"
+                    class="ts-button is-outlined is-short">
                     <i class="fa-brands fa-github"></i> GitHub
                 </a>
             </nav>
@@ -57,7 +65,8 @@
                             <span class="ts-badge is-primary" style="margin-bottom: 1rem;">金流整合</span>
                             <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 0.25rem;">多元第三方金流支援</h2>
                             <p style="color: var(--text-secondary); line-height: 1.6;">
-                                完整對接 <strong>ECPay (綠界科技)</strong> 與 <strong>O'Pay (歐付寶)</strong> API。自動處理付款 Callback 機制與交易狀態驗證，確保每一筆贊助紀錄安全且無遺漏。
+                                完整對接 <strong>ECPay (綠界科技)</strong> 與 <strong>O'Pay (歐付寶)</strong> API。自動處理付款 Callback
+                                機制與交易狀態驗證，確保每一筆贊助紀錄安全且無遺漏。
                             </p>
                             <ul style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 0;">
                                 <li>支援信用卡、網路 ATM 與超商代碼繳費</li>
@@ -74,7 +83,8 @@
                             <span class="ts-badge is-info" style="margin-bottom: 1rem;">直播廣播</span>
                             <h2 style="font-size: 1.4rem; font-weight: 700; margin-top: 0.25rem;">OBS 瀏覽器來源與動態廣播</h2>
                             <p style="color: var(--text-secondary); line-height: 1.6;">
-                                實況主只需將 <code class="ts-code">/obs</code> 頁面新增至 OBS Studio 瀏覽器來源（Browser Source），當贊助交易完成時即可於直播畫面即時播放彈出通知。
+                                實況主只需將 <code class="ts-code">/obs</code> 頁面新增至 OBS Studio 瀏覽器來源（Browser
+                                Source），當贊助交易完成時即可於直播畫面即時播放彈出通知。
                             </p>
                             <ul style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 0;">
                                 <li>即時顯示贊助者暱稱、金額與留言內容</li>
@@ -91,7 +101,7 @@
                 <h2 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 1.25rem;">系統頁面與路由對照表</h2>
                 <div class="ts-box">
                     <div class="ts-content" style="padding: 0;">
-                        <table class="ts-table is-striped is-celled">
+                        <table class="ts-table is-striped is-celled responsive-card-table">
                             <thead>
                                 <tr>
                                     <th style="width: 20%;">頁面路徑</th>
@@ -101,40 +111,41 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><code class="ts-code">/</code></td>
-                                    <td>
+                                    <td data-label="頁面路徑"><code class="ts-code">/</code></td>
+                                    <td data-label="用途類型">
                                         <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
                                             <span class="ts-badge is-light">公開頁面</span> <span>贊助填寫頁</span>
                                         </div>
                                     </td>
-                                    <td>觀眾進入填寫暱稱、贊助金額、留言並選擇金流支付方式，自動導向金流頁面。</td>
+                                    <td data-label="詳細說明與技術機制">觀眾進入填寫暱稱、贊助金額、留言並選擇金流支付方式，自動導向金流頁面。</td>
                                 </tr>
                                 <tr>
-                                    <td><code class="ts-code">/dashboard</code></td>
-                                    <td>
+                                    <td data-label="頁面路徑"><code class="ts-code">/dashboard</code></td>
+                                    <td data-label="用途類型">
                                         <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
                                             <span class="ts-badge is-primary">管理頁面</span> <span>實況主後台</span>
                                         </div>
                                     </td>
-                                    <td>查看詳細贊助歷史紀錄，線上即時設定廣播通知圖片、音效、字型、顯示時長與主題配色。</td>
+                                    <td data-label="詳細說明與技術機制">查看詳細贊助歷史紀錄，線上即時設定廣播通知圖片、音效、字型、顯示時長與主題配色。</td>
                                 </tr>
                                 <tr>
-                                    <td><code class="ts-code">/obs</code></td>
-                                    <td>
+                                    <td data-label="頁面路徑"><code class="ts-code">/obs</code></td>
+                                    <td data-label="用途類型">
                                         <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
                                             <span class="ts-badge is-secondary">OBS 來源</span> <span>廣播通知頁</span>
                                         </div>
                                     </td>
-                                    <td>透明背景設計，專門用於嵌入 OBS 瀏覽器來源。透過連線自動接收與輪播贊助通知。</td>
+                                    <td data-label="詳細說明與技術機制">透明背景設計，專門用於嵌入 OBS 瀏覽器來源。透過連線自動接收與輪播贊助通知。</td>
                                 </tr>
                                 <tr>
-                                    <td><code class="ts-code">/login</code></td>
-                                    <td>
+                                    <td data-label="頁面路徑"><code class="ts-code">/login</code></td>
+                                    <td data-label="用途類型">
                                         <div style="display: inline-flex; align-items: center; gap: 0.5rem;">
                                             <span class="ts-badge is-warning">驗證頁面</span> <span>管理員登入</span>
                                         </div>
                                     </td>
-                                    <td>提供 JWT 身分驗證與安全 Cookie 簽發，保護 <code class="ts-code">/dashboard</code> 後台不受未授權存取。</td>
+                                    <td data-label="詳細說明與技術機制">提供 JWT 身分驗證與安全 Cookie 簽發，保護 <code
+                                            class="ts-code">/dashboard</code> 後台不受未授權存取。</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -148,7 +159,8 @@
                     <div class="header" style="font-weight: 700;">準備好開始部署了嗎？</div>
                     <p>您可以選擇使用 Docker Compose 在自託管伺服器運行，或使用 Zeabur 進行一鍵雲端部署。</p>
                     <div style="margin-top: 1rem;">
-                        <a href="deploy.html" class="ts-button is-primary is-short" style="text-decoration: none !important;">前往部署指南 &rarr;</a>
+                        <a href="deploy.html" class="ts-button is-primary is-short"
+                            style="text-decoration: none !important;">前往部署指南 &rarr;</a>
                     </div>
                 </div>
             </div>
@@ -160,11 +172,11 @@
         <div class="ts-container">
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
                 <div>
-                    <strong>S4N Donate System</strong> &copy; <a href="https://salmon4neko.com/" target="_blank" rel="noopener">Salmon4neko Studio 鮭貓工作室</a>.
-                    <br>
-                    <span style="font-size: 0.85rem; color: #86868b;">採用 <a href="faq.html#license">GNU General Public License v3.0</a> 開源授權。</span>
+                    <strong style="display: block; font-size: 1rem; margin-bottom: 0.25rem;">S4N Donate System</strong>
+                    <div>&copy; <a href="https://salmon4neko.com/" target="_blank" rel="noopener">Salmon4neko Studio 鮭貓工作室</a>.</div>
+                    <div style="font-size: 0.85rem; color: #86868b; margin-top: 0.2rem;">採用 <a href="faq.html#license">GNU General Public License v3.0</a> 開源授權。</div>
                 </div>
-                <div style="display: flex; gap: 1.25rem;">
+                <div style="display: flex; gap: 1.25rem; flex-wrap: wrap; justify-content: center;">
                     <a href="https://github.com/Salmon4neko-Studio/S4N-Donate-System" target="_blank" rel="noopener">GitHub 儲存庫</a>
                     <a href="https://hub.docker.com/r/lokisalmonneko/s4n-donate-system" target="_blank" rel="noopener">Docker Hub</a>
                     <a href="https://zeabur.com/templates/PZ7FR9" target="_blank" rel="noopener">Zeabur 範本</a>
@@ -172,5 +184,23 @@
             </div>
         </div>
     </footer>
+
+    <!-- 行動端導覽列開關腳本 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleBtn = document.getElementById('mobile-menu-toggle');
+            const navLinks = document.getElementById('main-navigation');
+            if (toggleBtn && navLinks) {
+                toggleBtn.addEventListener('click', function () {
+                    const isOpen = navLinks.classList.toggle('is-open');
+                    const icon = toggleBtn.querySelector('i');
+                    if (icon) {
+                        icon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
+
 </html>
