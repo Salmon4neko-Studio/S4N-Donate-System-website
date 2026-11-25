@@ -1,188 +1,255 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" class="is-light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S4N Donate System | 開源輕量實況主贊助平台</title>
-    <meta name="description" content="S4N Donate System 為開源且輕量的實況主贊助平台，支援 ECPay 與 O'Pay 金流整合、OBS 即時動態通知廣播與獨立管理後台。">
-    <!-- Favicon -->
+    <title>S4N DONATE SYSTEM 2.0 | 開源自架的實況主贊助平台</title>
+    <meta name="description"
+        content="S4N DONATE SYSTEM 2.0 是從零重寫的自架贊助平台。官方金流外掛、簽章外掛市集，以及共用同一條 OBS 網址的提醒、目標、跑馬燈與 Twitch 聊天。">
+    <meta name="theme-color" content="#f3eee6">
+    <link rel="canonical" href="https://donate-system.salmon4neko.com/">
+    <meta property="og:title" content="S4N DONATE SYSTEM 2.0">
+    <meta property="og:description"
+        content="開源、自架的實況主贊助平台。安全、美感，然後才是開發容易。">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:url" content="https://donate-system.salmon4neko.com/">
     <link rel="icon" href="https://img.uwub.tw/Salmon4neko%20Studio_%E6%AD%A3%E6%96%B9%E5%BD%A2%E5%9C%96%E6%A8%99.png"
         type="image/png">
-    <!-- Font Awesome Icons -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Tocas UI 5.0 CSS & JS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/5.0.0/tocas.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/5.0.0/tocas.min.js"></script>
-    <!-- Google Fonts: Noto Sans TC -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- 頂部固定導覽列 -->
+    <a class="skip-link" href="#content">跳至主要內容</a>
     <header class="site-navbar">
-        <div class="ts-container navbar-inner">
+        <div class="wrap navbar-inner">
             <a href="index.html" class="site-brand">
-                <span>S4N Donate System</span>
-                <span class="brand-badge">v1.0</span>
+                <img src="https://img.uwub.tw/Salmon4neko%20Studio_%E6%AD%A3%E6%96%B9%E5%BD%A2%E5%9C%96%E6%A8%99.png"
+                    alt="" class="brand-logo" width="32" height="32">
+                <span class="brand-name">S4N DONATE SYSTEM</span>
+                <span class="brand-badge">2.0</span>
             </a>
-            <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="切換主導覽選單">
-                <i class="fa-solid fa-bars"></i>
+            <button class="mobile-toggle" id="mobile-menu-toggle" type="button" aria-expanded="false"
+                aria-controls="main-navigation" aria-label="切換主導覽選單">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
             </button>
-            <nav class="site-nav-links" id="main-navigation">
-                <a href="index.html" class="active">首頁總覽</a>
-                <a href="features.html">核心特色</a>
-                <a href="deploy.html">部署指南</a>
-                <a href="faq.html">常見問題</a>
-                <a href="https://github.com/Salmon4neko-Studio/S4N-Donate-System" target="_blank" rel="noopener"
-                    class="ts-button is-outlined is-short">
-                    <i class="fa-brands fa-github"></i> GitHub
+            <nav class="site-nav-links" id="main-navigation" aria-label="主要">
+                <a href="index.html" class="active" aria-current="page">首頁</a>
+                <a href="features.html">功能</a>
+                <a href="faq.html">路線</a>
+                <a href="deploy.html">自架</a>
+                <a href="https://docs.donate-system.salmon4neko.com/" target="_blank" rel="noopener noreferrer">文件站</a>
+                <a href="https://github.com/Salmon4neko-Studio/S4N-Donate-System-2.0" target="_blank"
+                    rel="noopener noreferrer" class="ts-button is-outlined is-short nav-cta">
+                    <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
                 </a>
             </nav>
         </div>
     </header>
 
-    <!-- 主要內容區塊 -->
-    <main>
-        <!-- Hero Header -->
-        <section class="hero-section">
-            <div class="ts-container">
-                <div class="ts-badge is-primary" style="margin-bottom: 1rem; font-weight: 600;">開源免費 · GPLv3 授權</div>
-                <h1 class="hero-title">專為實況主打造的<br>輕量贊助與廣播系統</h1>
-                <p class="hero-subtitle">
-                    整合綠界 (ECPay) 與歐付寶 (O'Pay) 第三方金流，提供 OBS 瀏覽器來源即時廣播通知，讓贊助互動簡單流暢。
-                </p>
-                <div class="hero-actions">
-                    <a href="deploy.html" class="ts-button is-primary is-large">
-                        <i class="fa-solid fa-rocket"></i> 快速部署平台
+    <main id="content">
+        <section class="hero">
+            <div class="wrap hero-grid">
+                <div>
+                    <p class="eyebrow">從零重寫 · MIT · 自架</p>
+                    <h1>實況主自己架的<br>贊助平台</h1>
+                    <p class="lede">
+                        S4N DONATE SYSTEM 2.0 讓營運者在儀表板管理金流與疊層，觀眾在公開贊助頁付款，OBS 用同一條瀏覽器來源網址顯示提醒、目標、跑馬燈與聊天。
+                    </p>
+                    <p class="lede">
+                        這不是舊系統的遷移。優先順序是安全、美感，然後才是開發容易。
+                    </p>
+                    <div class="hero-actions">
+                        <a class="ts-button is-primary is-large"
+                            href="https://docs.donate-system.salmon4neko.com/" target="_blank"
+                            rel="noopener noreferrer">
+                            <i class="fa-solid fa-book" aria-hidden="true"></i> 閱讀文件
+                        </a>
+                        <a class="ts-button is-outlined is-large" href="features.html">
+                            看功能與架構
+                        </a>
+                    </div>
+                    <p class="fine-print">部署步驟在文件站。本站沒有一鍵代管，也不附安裝教學。</p>
+                </div>
+                <figure class="stage">
+                    <div class="stage-bar">
+                        <i class="fa-solid fa-display" aria-hidden="true"></i>
+                        <span>同一條 OBS 網址 · 同一張畫布</span>
+                    </div>
+                    <div class="stage-canvas">
+                        <div class="slot slot-alert">
+                            <span class="slot-label">提醒</span>
+                            <strong>範本、顏色、動畫</strong>
+                            <p>可加提示音。名稱與留言只當文字。</p>
+                        </div>
+                        <div class="slot slot-goal">
+                            <span class="slot-label">目標</span>
+                            <strong>只算已入帳</strong>
+                            <div class="goal-track" aria-hidden="true"><span></span></div>
+                        </div>
+                        <div class="slot slot-ticker">
+                            <span class="slot-label">跑馬燈</span>
+                            <p class="ticker-line">純文字，可接最近的已付款贊助</p>
+                        </div>
+                        <div class="slot slot-chat">
+                            <span class="slot-label">聊天</span>
+                            <strong>Twitch 來源 · 聊天顯示</strong>
+                        </div>
+                    </div>
+                    <figcaption>示意。四種疊層共用一張畫布，位置可在畫布上調整。此圖不是產品截圖。</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="band" aria-labelledby="priorities-title">
+            <div class="wrap">
+                <div class="section-head">
+                    <h2 id="priorities-title">優先順序</h2>
+                    <p>安全先於外觀，外觀先於把功能做多。</p>
+                </div>
+                <div class="priorities">
+                    <article class="priority">
+                        <span>01</span>
+                        <h2>安全</h2>
+                        <p>外掛密鑰以 AES-256-GCM 密封。官方外掛索引以 Ed25519 簽署。金流只有允許清單上的官方外掛。</p>
+                    </article>
+                    <article class="priority">
+                        <span>02</span>
+                        <h2>美感</h2>
+                        <p>介面與文件以繁體中文為主。品牌色是 #F28500，字型是自託管的 jf open 粉圓。</p>
+                    </article>
+                    <article class="priority">
+                        <span>03</span>
+                        <h2>開發容易</h2>
+                        <p>核心只留帳本、付款介面、事件、疊層外殼、外掛密鑰與權限。具體功能以外掛掛上。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="band-muted" aria-labelledby="feature-title">
+            <div class="wrap">
+                <div class="section-head">
+                    <h2 id="feature-title">現在有的</h2>
+                    <p>以下都是 2.0 已提供的能力。操作步驟寫在文件站，不在這裡展開。</p>
+                </div>
+                <div class="card-grid cols-2">
+                    <article class="feature-card">
+                        <div class="card-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
+                        <h3>密鑰與簽章</h3>
+                        <p>儀表板只顯示密文欄位「已設定」或「未設定」。官方索引簽章不對、或套件摘要不符，就不會被採用。</p>
+                        <a class="more" href="features.html#security">安全性說明</a>
+                    </article>
+                    <article class="feature-card">
+                        <div class="card-icon"><i class="fa-solid fa-puzzle-piece" aria-hidden="true"></i></div>
+                        <h3>外掛市集</h3>
+                        <p>模組化單體加上外掛市集。官方外掛與核心一起發布，索引宣告版本、權限與套件摘要。</p>
+                        <a class="more" href="features.html#plugins">市集怎麼運作</a>
+                    </article>
+                    <article class="feature-card">
+                        <div class="card-icon"><i class="fa-solid fa-credit-card" aria-hidden="true"></i></div>
+                        <h3>官方金流</h3>
+                        <p>綠界信用卡、ATM、超商代碼、超商條碼；歐付寶信用卡、ATM、超商代碼。一種付款方式一個外掛。</p>
+                        <a class="more" href="features.html#payments">付款方式清單</a>
+                    </article>
+                    <article class="feature-card">
+                        <div class="card-icon"><i class="fa-solid fa-tv" aria-hidden="true"></i></div>
+                        <h3>一張 OBS 畫布</h3>
+                        <p>提醒、目標、跑馬燈與 Twitch 聊天共用網址。目標只計算已入帳的贊助。測試贊助不進帳本。</p>
+                        <a class="more" href="features.html#overlays">疊層內容</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="band" aria-labelledby="rebuild-title">
+            <div class="wrap rebuild">
+                <div>
+                    <h2 id="rebuild-title">2.0 是另一個專案</h2>
+                    <p class="lede">1.0 在 Zeabur 停止服務後已封存。這個版本沒有從舊資料搬移的路徑，也沒有 Zeabur 範本或一鍵部署按鈕。</p>
+                    <div class="cluster">
+                        <a class="ts-button is-primary" href="deploy.html">自架說明在哪裡</a>
+                        <a class="ts-button is-outlined" href="faq.html#roadmap">看路線圖</a>
+                    </div>
+                </div>
+                <ul class="fact-list">
+                    <li><strong>授權</strong><span>MIT。字型另以 SIL OFL 1.1 提供。</span></li>
+                    <li><strong>語言</strong><span>介面與文件以繁體中文為主。</span></li>
+                    <li><strong>還沒有的</strong><span>YouTube 聊天來源、贊助頁自訂、多個 API 實例共用的登入限流。語音合成已移除。</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="band-muted" aria-labelledby="stack-title">
+            <div class="wrap">
+                <div class="section-head">
+                    <h2 id="stack-title">技術堆疊</h2>
+                    <p>單一 pnpm monorepo。正式環境由 Caddy 終止 TLS，映像推到 GitHub Container Registry。</p>
+                </div>
+                <ul class="stack-row">
+                    <li>Node.js 22</li>
+                    <li>Hono</li>
+                    <li>Prisma 7</li>
+                    <li>PostgreSQL 16</li>
+                    <li>Vite</li>
+                    <li>React 19</li>
+                    <li>Tocas UI</li>
+                    <li>Starlight</li>
+                    <li>Docker</li>
+                    <li>Caddy</li>
+                    <li>GHCR</li>
+                </ul>
+                <div class="cluster">
+                    <a class="ts-button is-outlined" href="features.html#architecture">看架構</a>
+                    <a class="ts-button is-outlined" href="https://github.com/Salmon4neko-Studio/S4N-Donate-System-2.0"
+                        target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-github" aria-hidden="true"></i> 原始碼
                     </a>
-                    <a href="https://zeabur.com/templates/PZ7FR9?referralCode=LokiSalmonNeko" target="_blank"
-                        rel="noopener" class="ts-button is-secondary is-outlined is-large">
-                        <i class="fa-solid fa-bolt"></i> Zeabur 一鍵部署
-                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- 3 大核心亮點 -->
-        <section
-            style="padding: 3rem 0; background: #ffffff; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
-            <div class="ts-container">
-                <div class="ts-grid is-3-columns is-stackable">
-                    <div class="column">
-                        <div class="feature-card">
-                            <div class="card-icon"><i class="fa-solid fa-credit-card"></i></div>
-                            <h3>多元金流整合</h3>
-                            <p>支援台灣主流第三方金流 ECPay (綠界科技) 與 O'Pay (歐付寶)，觀眾贊助流程順暢且支援多種支付方式。</p>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="feature-card">
-                            <div class="card-icon"><i class="fa-solid fa-video"></i></div>
-                            <h3>OBS 即時動態廣播</h3>
-                            <p>提供專屬 <code class="ts-code">/obs</code> 瀏覽器來源頁面，透過即時連線於直播畫面播放自訂彈出廣播動畫與音效。</p>
-                        </div>
-                    </div>
-                    <div class="column">
-                        <div class="feature-card">
-                            <div class="card-icon"><i class="fa-solid fa-sliders"></i></div>
-                            <h3>獨立後台管理</h3>
-                            <p>實況主專用管理儀表板，可查看歷史贊助紀錄，動態調整通知樣式、音效、顯示時長與主題配色。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 快速概覽與特色導航 -->
-        <section style="padding: 4rem 0;">
-            <div class="ts-container">
-                <div class="ts-box">
-                    <div class="ts-content" style="padding: 2.5rem;">
-                        <div
-                            style="display: flex; justify-content: space-between; align-items: stretch; gap: 2rem; flex-wrap: wrap;">
-                            <!-- 左側內容延伸至右邊 -->
-                            <div
-                                style="flex: 1 1 0%; min-width: 280px; display: flex; flex-direction: column; justify-content: center;">
-                                <h2 style="font-size: 1.75rem; font-weight: 700; margin-top: 0;">極簡開源，完全自託管</h2>
-                                <p style="color: var(--text-secondary); line-height: 1.7; font-size: 1.05rem;">
-                                    S4N Donate System 採用現代化 <strong>Next.js</strong> 與 <strong>Prisma</strong> 打造，提供官方
-                                    Docker Image<span class="mobile-hidden"> (<code
-                                            class="ts-code">lokisalmonneko/s4n-donate-system</code>)</span>。無須繁複設定即可快速搭建屬於您自己的贊助網站。
-                                </p>
-                                <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap;">
-                                    <span class="ts-badge">Next.js</span>
-                                    <span class="ts-badge">Prisma</span>
-                                    <span class="ts-badge">PostgreSQL</span>
-                                    <span class="ts-badge">Docker</span>
-                                    <span class="ts-badge">Tocas UI</span>
-                                </div>
-                            </div>
-
-                            <!-- 右側延伸探索說明 -->
-                            <div
-                                style="max-width: 100%; width: 320px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; background: #f8f9fa; padding: 1.75rem; border-radius: 10px; border: 1px solid var(--border-color); box-sizing: border-box;">
-                                <h3
-                                    style="font-size: 1.15rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; color: var(--text-primary);">
-                                    延伸探索說明</h3>
-                                <ul
-                                    style="padding-left: 1.2rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.8;">
-                                    <li><a href="features.html">觀看詳細頁面架構與功能</a></li>
-                                    <li><a href="deploy.html">Docker / Zeabur 部署教學</a></li>
-                                    <li><a href="faq.html">參閱常見問題與授權</a></li>
-                                </ul>
-                                <a href="features.html" class="ts-button is-primary is-fluid">瞭解完整特色 &rarr;</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="wrap ai-note">
+            <p>
+                <strong>AI 輔助開發。</strong>
+                S4N DONATE SYSTEM 2.0 有相當比例的程式碼與文件，是在維護者指導與審查下，藉由 AI 輔助開發工具產出。提交前經過人工檢視，但仍可能存在疏漏。請在用於正式環境前自行審查、測試，並依實際需求完成設定。本軟體依 MIT 授權現況提供，不對適用性或無錯誤作出保證。
+            </p>
+        </div>
     </main>
 
-    <!-- 頁尾資訊 -->
     <footer class="site-footer">
-        <div class="ts-container">
-            <div
-                style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                <div>
-                    <strong style="display: block; font-size: 1rem; margin-bottom: 0.25rem;">S4N Donate System</strong>
-                    <div>Powered by <a href="https://salmon4neko.com/" target="_blank" rel="noopener">Salmon4neko Studio
-                            鮭貓工作室</a></div>
-                    <div style="font-size: 0.85rem; color: #86868b; margin-top: 0.2rem;">採用 <a
-                            href="faq.html#license">GNU General Public License v3.0</a> 開源授權。</div>
-                </div>
-                <div style="display: flex; gap: 1.25rem; flex-wrap: wrap; justify-content: center;">
-                    <a href="https://github.com/Salmon4neko-Studio/S4N-Donate-System" target="_blank"
-                        rel="noopener">GitHub 儲存庫</a>
-                    <a href="https://hub.docker.com/r/lokisalmonneko/s4n-donate-system" target="_blank"
-                        rel="noopener">Docker Hub</a>
-                    <a href="https://zeabur.com/templates/PZ7FR9" target="_blank" rel="noopener">Zeabur 範本</a>
-                </div>
+        <div class="wrap footer-grid">
+            <div>
+                <strong>S4N DONATE SYSTEM</strong>
+                <p>開源、自架的實況主贊助平台。</p>
+                <p>Powered by <a href="https://salmon4neko.com/" target="_blank" rel="noopener noreferrer">Salmon4neko
+                        Studio 鮭貓工作室</a></p>
+                <p>軟體採用 <a href="faq.html#license">MIT 授權</a>。字型 jf open 粉圓 2.1 為 <a href="fonts/OFL.txt">SIL OFL
+                        1.1</a>。</p>
             </div>
+            <nav class="footer-links" aria-label="站內">
+                <span>本站</span>
+                <a href="features.html">功能、架構與安全</a>
+                <a href="faq.html">路線與常見問題</a>
+                <a href="deploy.html">自架說明</a>
+            </nav>
+            <nav class="footer-links" aria-label="對外">
+                <span>對外</span>
+                <a href="https://docs.donate-system.salmon4neko.com/" target="_blank"
+                    rel="noopener noreferrer">文件站</a>
+                <a href="https://github.com/Salmon4neko-Studio/S4N-Donate-System-2.0" target="_blank"
+                    rel="noopener noreferrer">GitHub</a>
+                <a href="https://docs.donate-system.salmon4neko.com/guides/security/" target="_blank"
+                    rel="noopener noreferrer">安全性</a>
+            </nav>
         </div>
     </footer>
-
-    <!-- 行動端導覽列開關腳本 -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const toggleBtn = document.getElementById('mobile-menu-toggle');
-            const navLinks = document.getElementById('main-navigation');
-            if (toggleBtn && navLinks) {
-                toggleBtn.addEventListener('click', function () {
-                    const isOpen = navLinks.classList.toggle('is-open');
-                    const icon = toggleBtn.querySelector('i');
-                    if (icon) {
-                        icon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-                    }
-                });
-            }
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/5.0.0/tocas.min.js"></script>
+    <script src="site.js"></script>
 </body>
 
 </html>
