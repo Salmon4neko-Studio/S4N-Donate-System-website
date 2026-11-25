@@ -7,7 +7,7 @@
     <title>功能、架構與安全 | S4N DONATE SYSTEM 2.0</title>
     <meta name="description"
         content="S4N DONATE SYSTEM 2.0 的官方金流外掛、OBS 共用畫布、簽章外掛市集、模組化單體架構與安全設計。">
-    <meta name="theme-color" content="#f3eee6">
+    <meta name="theme-color" content="#ffffff">
     <link rel="canonical" href="https://donate-system.salmon4neko.com/features.html">
     <meta property="og:title" content="功能、架構與安全 | S4N DONATE SYSTEM 2.0">
     <meta property="og:description" content="官方金流、共用 OBS 畫布、外掛市集，以及模組化單體怎麼切。">
@@ -19,40 +19,47 @@
     <link rel="preload" href="fonts/jf-openhuninn-2.1-site.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/5.0.0/tocas.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <a class="skip-link" href="#content">跳至主要內容</a>
-    <header class="site-navbar">
-        <div class="wrap navbar-inner">
-            <a href="index.html" class="site-brand">
-                <img src="https://img.uwub.tw/Salmon4neko%20Studio_%E6%AD%A3%E6%96%B9%E5%BD%A2%E5%9C%96%E6%A8%99.png"
-                    alt="" class="brand-logo" width="32" height="32">
-                <span class="brand-name">S4N DONATE SYSTEM</span>
+    <header class="site-header" id="page-header">
+        <div class="nav-inner">
+            <a class="site-logo" href="index.html">
+                <img src="https://img.uwub.tw/Salmon4neko%20Studio_%E6%AD%A3%E6%96%B9%E5%BD%A2%E5%9C%96%E6%A8%99.png" alt="" class="site-logo-mark" width="36" height="36">
+                <span class="site-logo-text">S4N DONATE SYSTEM</span>
                 <span class="brand-badge">2.0</span>
             </a>
-            <button class="mobile-toggle" id="mobile-menu-toggle" type="button" aria-expanded="false"
-                aria-controls="main-navigation" aria-label="切換主導覽選單">
-                <i class="fa-solid fa-bars" aria-hidden="true"></i>
-            </button>
-            <nav class="site-nav-links" id="main-navigation" aria-label="主要">
-                <a href="index.html">首頁</a>
-                <a href="features.html" class="active" aria-current="page">功能</a>
-                <a href="faq.html">路線</a>
-                <a href="deploy.html">自架</a>
-                <a href="https://docs.donate-system.salmon4neko.com/" target="_blank" rel="noopener noreferrer">文件站</a>
-                <a href="https://github.com/Salmon4neko-Studio/S4N-Donate-System-2.0" target="_blank"
-                    rel="noopener noreferrer" class="ts-button is-outlined is-short nav-cta">
-                    <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
-                </a>
+            <nav class="nav-links" id="main-navigation" aria-label="主要">
+                <a href="index.html" class="nav-link">首頁</a>
+                <a href="features.html" class="nav-link is-active" aria-current="page">功能</a>
+                <a href="faq.html" class="nav-link">路線</a>
+                <a href="deploy.html" class="nav-link">自架</a>
+                <a href="https://docs.donate-system.salmon4neko.com/" class="nav-link" target="_blank" rel="noopener noreferrer">文件站</a>
             </nav>
+            <a class="nav-cta" href="https://github.com/Salmon4neko-Studio/S4N-Donate-System-2.0" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+            </a>
+            <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false"
+                aria-controls="mobile-menu" aria-label="開啟選單">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+            <a href="index.html" class="mobile-link">首頁</a>
+            <a href="features.html" class="mobile-link is-active" aria-current="page">功能</a>
+            <a href="faq.html" class="mobile-link">路線</a>
+            <a href="deploy.html" class="mobile-link">自架</a>
+            <a href="https://docs.donate-system.salmon4neko.com/" class="mobile-link" target="_blank" rel="noopener noreferrer">文件站</a>
+            <a class="mobile-cta" href="https://github.com/Salmon4neko-Studio/S4N-Donate-System-2.0" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+            </a>
         </div>
     </header>
 
     <main id="content">
-        <header class="page-intro">
+        <header class="page-hero">
             <div class="wrap">
                 <p class="eyebrow">功能</p>
                 <h1>金流、疊層與市集</h1>
@@ -313,7 +320,7 @@
                         <p>尚無內容安全政策。登入限流與 Twitch 徽章快取仍在單一程序的記憶體裡。多實例共用的登入限流在路線圖上。</p>
                     </article>
                 </div>
-                <div class="callout">
+                <div class="callout has-trailing-gap">
                     <p>若發現安全漏洞，請不要在公開 Issue 貼出可重現的利用細節。範圍與回報方式見 <a
                             href="https://github.com/Salmon4neko-Studio/S4N-Donate-System-2.0/blob/main/SECURITY.md"
                             target="_blank" rel="noopener noreferrer">SECURITY.md</a>。設計細節見 <a
@@ -334,33 +341,35 @@
     </main>
 
     <footer class="site-footer">
-        <div class="wrap footer-grid">
-            <div>
-                <strong>S4N DONATE SYSTEM</strong>
-                <p>開源、自架的實況主贊助平台。</p>
-                <p>Powered by <a href="https://salmon4neko.com/" target="_blank" rel="noopener noreferrer">Salmon4neko
-                        Studio 鮭貓工作室</a></p>
-                <p>軟體採用 <a href="faq.html#license">MIT 授權</a>。字型 jf open 粉圓 2.1 為 <a href="fonts/OFL.txt">SIL OFL
-                        1.1</a>。</p>
-            </div>
-            <nav class="footer-links" aria-label="站內">
-                <span>本站</span>
-                <a href="index.html">首頁</a>
-                <a href="faq.html">路線與常見問題</a>
-                <a href="deploy.html">自架說明</a>
+        <div class="wrap footer-inner">
+            <a class="footer-logo-link" href="https://salmon4neko.com/" target="_blank" rel="noopener noreferrer">
+                <img src="https://img.uwub.tw/Salmon4neko%20Studio_%E6%A8%99%E6%BA%96%E5%AD%97.png" alt="Salmon4neko Studio 鮭貓工作室" class="footer-logo">
+            </a>
+            <p class="footer-tagline">開源、自架的實況主贊助平台。</p>
+            <nav class="footer-nav" aria-label="頁尾">
+                    <a href="index.html">首頁</a>
+                    <a href="faq.html">路線與常見問題</a>
+                    <a href="deploy.html">自架說明</a>
+                    <a href="https://docs.donate-system.salmon4neko.com/" target="_blank" rel="noopener noreferrer">文件站</a>
+                    <a href="https://github.com/Salmon4neko-Studio/S4N-Donate-System-2.0" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://docs.donate-system.salmon4neko.com/guides/security/" target="_blank" rel="noopener noreferrer">安全性</a>
             </nav>
-            <nav class="footer-links" aria-label="對外">
-                <span>對外</span>
-                <a href="https://docs.donate-system.salmon4neko.com/" target="_blank"
-                    rel="noopener noreferrer">文件站</a>
-                <a href="https://github.com/Salmon4neko-Studio/S4N-Donate-System-2.0" target="_blank"
-                    rel="noopener noreferrer">GitHub</a>
-                <a href="https://docs.donate-system.salmon4neko.com/guides/security/" target="_blank"
-                    rel="noopener noreferrer">安全性</a>
-            </nav>
+
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/salmon4neko" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
+                        </svg>
+                    </a>
+                    <a href="https://x.com/salmon4neko" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="X">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                    </a>
+                </div>
+            <p class="footer-copy">Powered by <a href="https://salmon4neko.com/" target="_blank" rel="noopener noreferrer">Salmon4neko Studio 鮭貓工作室</a> · 軟體採用 <a href="faq.html#license">MIT 授權</a> · 字型 jf open 粉圓 2.1 為 <a href="fonts/OFL.txt">SIL OFL 1.1</a>。</p>
         </div>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/5.0.0/tocas.min.js"></script>
     <script src="site.js"></script>
 </body>
 
