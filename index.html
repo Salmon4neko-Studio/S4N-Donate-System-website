@@ -17,9 +17,12 @@
     <meta property="og:url" content="https://donate-system.salmon4neko.com/">
     <link rel="icon" href="https://img.uwub.tw/Salmon4neko%20Studio_%E6%AD%A3%E6%96%B9%E5%BD%A2%E5%9C%96%E6%A8%99.png"
         type="image/png">
-    <link rel="preload" href="fonts/jf-openhuninn-2.1-site.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/5.0.2/tocas.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -30,16 +33,16 @@
             <a class="site-logo" href="index.html">
                 <img src="https://img.uwub.tw/Salmon4neko%20Studio_%E6%AD%A3%E6%96%B9%E5%BD%A2%E5%9C%96%E6%A8%99.png" alt="" class="site-logo-mark" width="36" height="36">
                 <span class="site-logo-text">S4N DONATE SYSTEM</span>
-                <span class="brand-badge">2.0</span>
+                <span class="ts-badge brand-badge">2.0</span>
             </a>
-            <nav class="nav-links" id="main-navigation" aria-label="主要">
-                <a href="index.html" class="nav-link is-active" aria-current="page">首頁</a>
-                <a href="features.html" class="nav-link">功能</a>
-                <a href="faq.html" class="nav-link">路線</a>
-                <a href="deploy.html" class="nav-link">自架</a>
-                <a href="https://docs.donate-system.salmon4neko.com/" class="nav-link" target="_blank" rel="noopener noreferrer">文件站</a>
+            <nav class="ts-menu is-separated nav-links" id="main-navigation" aria-label="主要">
+                <a href="index.html" class="item is-active" aria-current="page">首頁</a>
+                <a href="features.html" class="item">功能</a>
+                <a href="faq.html" class="item">路線</a>
+                <a href="deploy.html" class="item">自架</a>
+                <a href="https://docs.donate-system.salmon4neko.com/" class="item" target="_blank" rel="noopener noreferrer">文件站</a>
             </nav>
-            <a class="nav-cta" href="https://github.com/Salmon4neko-Studio/S4N-Donate-System-2.0" target="_blank" rel="noopener noreferrer">
+            <a class="ts-button nav-cta" href="https://github.com/Salmon4neko-Studio/S4N-Donate-System-2.0" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
             </a>
             <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false"
@@ -47,38 +50,38 @@
                 <span></span><span></span><span></span>
             </button>
         </div>
-        <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-            <a href="index.html" class="mobile-link is-active" aria-current="page">首頁</a>
-            <a href="features.html" class="mobile-link">功能</a>
-            <a href="faq.html" class="mobile-link">路線</a>
-            <a href="deploy.html" class="mobile-link">自架</a>
-            <a href="https://docs.donate-system.salmon4neko.com/" class="mobile-link" target="_blank" rel="noopener noreferrer">文件站</a>
-            <a class="mobile-cta" href="https://github.com/Salmon4neko-Studio/S4N-Donate-System-2.0" target="_blank" rel="noopener noreferrer">
+        <nav class="ts-menu is-separated mobile-menu" id="mobile-menu" aria-hidden="true">
+            <a href="index.html" class="item is-active" aria-current="page">首頁</a>
+            <a href="features.html" class="item">功能</a>
+            <a href="faq.html" class="item">路線</a>
+            <a href="deploy.html" class="item">自架</a>
+            <a href="https://docs.donate-system.salmon4neko.com/" class="item" target="_blank" rel="noopener noreferrer">文件站</a>
+            <a class="ts-button mobile-cta" href="https://github.com/Salmon4neko-Studio/S4N-Donate-System-2.0" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
             </a>
-        </div>
+        </nav>
     </header>
 
     <main id="content">
         <section class="hero">
             <div class="hero-bg" aria-hidden="true"></div>
-            <div class="wrap hero-grid">
+            <div class="ts-container hero-grid">
                 <div>
-                    <p class="eyebrow">從零重寫 · MIT · 自架</p>
-                    <h1>實況主自己架的<br>贊助平台</h1>
+                    <p class="ts-badge eyebrow">從零重寫 · MIT · 自架</p>
+                    <h1 class="ts-header">實況主自己架的<br>贊助平台</h1>
                     <p class="lede">
                         S4N DONATE SYSTEM 2.0 讓營運者在儀表板管理金流與疊層，觀眾在公開贊助頁付款，OBS 用同一條瀏覽器來源網址顯示提醒、目標、跑馬燈與聊天。
                     </p>
                     <p class="lede">
                         這不是舊系統的遷移。優先順序是安全、美感，然後才是開發容易。
                     </p>
-                    <div class="hero-actions">
-                        <a class="btn btn-primary"
+                    <div class="ts-wrap hero-actions">
+                        <a class="ts-button"
                             href="https://docs.donate-system.salmon4neko.com/" target="_blank"
                             rel="noopener noreferrer">
                             <i class="fa-solid fa-book" aria-hidden="true"></i> 閱讀文件
                         </a>
-                        <a class="btn btn-ghost" href="features.html">
+                        <a class="ts-button is-outlined" href="features.html">
                             看功能與架構
                         </a>
                     </div>
@@ -115,106 +118,134 @@
         </section>
 
         <section class="band" aria-labelledby="priorities-title">
-            <div class="wrap">
+            <div class="ts-container">
                 <div class="section-head">
-                    <h2 id="priorities-title">優先順序</h2>
+                    <h2 class="ts-header" id="priorities-title">優先順序</h2>
                     <p>安全先於外觀，外觀先於把功能做多。</p>
                 </div>
-                <div class="priorities">
-                    <article class="priority">
+                <div class="ts-grid is-3-columns is-stretched priorities">
+                    <div class="column">
+                    <article class="ts-box s4n-card priority">
+                        <div class="ts-content">
                         <span>01</span>
-                        <h2>安全</h2>
+                        <h2 class="ts-header">安全</h2>
                         <p>外掛密鑰以 AES-256-GCM 密封。官方外掛索引以 Ed25519 簽署。金流只有允許清單上的官方外掛。</p>
+                    </div>
                     </article>
-                    <article class="priority">
+                    </div>
+                    <div class="column">
+                    <article class="ts-box s4n-card priority">
+                        <div class="ts-content">
                         <span>02</span>
-                        <h2>美感</h2>
+                        <h2 class="ts-header">美感</h2>
                         <p>介面與文件以繁體中文為主。品牌色是 #F28500，字型是自託管的 jf open 粉圓。</p>
+                    </div>
                     </article>
-                    <article class="priority">
+                    </div>
+                    <div class="column">
+                    <article class="ts-box s4n-card priority">
+                        <div class="ts-content">
                         <span>03</span>
-                        <h2>開發容易</h2>
+                        <h2 class="ts-header">開發容易</h2>
                         <p>核心只留帳本、付款介面、事件、疊層外殼、外掛密鑰與權限。具體功能以外掛掛上。</p>
+                    </div>
                     </article>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="band-muted" aria-labelledby="feature-title">
-            <div class="wrap">
+            <div class="ts-container">
                 <div class="section-head">
-                    <h2 id="feature-title">現在有的</h2>
+                    <h2 class="ts-header" id="feature-title">現在有的</h2>
                     <p>以下都是 2.0 已提供的能力。操作步驟寫在文件站，不在這裡展開。</p>
                 </div>
-                <div class="card-grid cols-2">
-                    <article class="feature-card">
+                <div class="ts-grid is-2-columns is-stretched card-grid">
+                    <div class="column">
+                    <article class="ts-box s4n-card feature-card">
+                        <div class="ts-content">
                         <div class="card-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
-                        <h3>密鑰與簽章</h3>
+                        <h3 class="ts-header">密鑰與簽章</h3>
                         <p>儀表板只顯示密文欄位「已設定」或「未設定」。官方索引簽章不對、或套件摘要不符，就不會被採用。</p>
                         <a class="more" href="features.html#security">安全性說明</a>
+                    </div>
                     </article>
-                    <article class="feature-card">
+                    </div>
+                    <div class="column">
+                    <article class="ts-box s4n-card feature-card">
+                        <div class="ts-content">
                         <div class="card-icon"><i class="fa-solid fa-puzzle-piece" aria-hidden="true"></i></div>
-                        <h3>外掛市集</h3>
+                        <h3 class="ts-header">外掛市集</h3>
                         <p>模組化單體加上外掛市集。官方外掛與核心一起發布，索引宣告版本、權限與套件摘要。</p>
                         <a class="more" href="features.html#plugins">市集怎麼運作</a>
+                    </div>
                     </article>
-                    <article class="feature-card">
+                    </div>
+                    <div class="column">
+                    <article class="ts-box s4n-card feature-card">
+                        <div class="ts-content">
                         <div class="card-icon"><i class="fa-solid fa-credit-card" aria-hidden="true"></i></div>
-                        <h3>官方金流</h3>
+                        <h3 class="ts-header">官方金流</h3>
                         <p>綠界信用卡、ATM、超商代碼、超商條碼；歐付寶信用卡、ATM、超商代碼。一種付款方式一個外掛。</p>
                         <a class="more" href="features.html#payments">付款方式清單</a>
+                    </div>
                     </article>
-                    <article class="feature-card">
+                    </div>
+                    <div class="column">
+                    <article class="ts-box s4n-card feature-card">
+                        <div class="ts-content">
                         <div class="card-icon"><i class="fa-solid fa-tv" aria-hidden="true"></i></div>
-                        <h3>一張 OBS 畫布</h3>
+                        <h3 class="ts-header">一張 OBS 畫布</h3>
                         <p>提醒、目標、跑馬燈與 Twitch 聊天共用網址。目標只計算已入帳的贊助。測試贊助不進帳本。</p>
                         <a class="more" href="features.html#overlays">疊層內容</a>
+                    </div>
                     </article>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="band" aria-labelledby="rebuild-title">
-            <div class="wrap rebuild">
+            <div class="ts-container rebuild">
                 <div>
-                    <h2 id="rebuild-title">2.0 是另一個專案</h2>
+                    <h2 class="ts-header" id="rebuild-title">2.0 是另一個專案</h2>
                     <p class="lede">1.0 在 Zeabur 停止服務後已封存。這個版本沒有從舊資料搬移的路徑，也沒有 Zeabur 範本或一鍵部署按鈕。</p>
-                    <div class="cluster">
-                        <a class="btn btn-primary" href="deploy.html">自架說明在哪裡</a>
-                        <a class="btn btn-ghost" href="faq.html#roadmap">看路線圖</a>
+                    <div class="ts-wrap cluster">
+                        <a class="ts-button" href="deploy.html">自架說明在哪裡</a>
+                        <a class="ts-button is-outlined" href="faq.html#roadmap">看路線圖</a>
                     </div>
                 </div>
                 <ul class="fact-list">
-                    <li><strong>授權</strong><span>MIT。字型另以 SIL OFL 1.1 提供。</span></li>
-                    <li><strong>語言</strong><span>介面與文件以繁體中文為主。</span></li>
-                    <li><strong>還沒有的</strong><span>YouTube 聊天來源、贊助頁自訂、多個 API 實例共用的登入限流。語音合成已移除。</span></li>
+                    <li class="ts-box"><div class="ts-content"><strong>授權</strong><span>MIT。字型另以 SIL OFL 1.1 提供。</span></div></li>
+                    <li class="ts-box"><div class="ts-content"><strong>語言</strong><span>介面與文件以繁體中文為主。</span></div></li>
+                    <li class="ts-box"><div class="ts-content"><strong>還沒有的</strong><span>YouTube 聊天來源、贊助頁自訂、多個 API 實例共用的登入限流。語音合成已移除。</span></div></li>
                 </ul>
             </div>
         </section>
 
         <section class="band-muted" aria-labelledby="stack-title">
-            <div class="wrap">
+            <div class="ts-container">
                 <div class="section-head">
-                    <h2 id="stack-title">技術堆疊</h2>
+                    <h2 class="ts-header" id="stack-title">技術堆疊</h2>
                     <p>單一 pnpm monorepo。正式環境由 Caddy 終止 TLS，映像推到 GitHub Container Registry。</p>
                 </div>
-                <ul class="stack-row">
-                    <li>Node.js 22</li>
-                    <li>Hono</li>
-                    <li>Prisma 7</li>
-                    <li>PostgreSQL 16</li>
-                    <li>Vite</li>
-                    <li>React 19</li>
-                    <li>Tocas UI</li>
-                    <li>Starlight</li>
-                    <li>Docker</li>
-                    <li>Caddy</li>
-                    <li>GHCR</li>
-                </ul>
-                <div class="cluster">
-                    <a class="btn btn-ghost" href="features.html#architecture">看架構</a>
-                    <a class="btn btn-ghost" href="https://github.com/Salmon4neko-Studio/S4N-Donate-System-2.0"
+                <div class="ts-wrap stack-row" role="list">
+                    <span class="ts-badge is-outlined" role="listitem">Node.js 22</span>
+                    <span class="ts-badge is-outlined" role="listitem">Hono</span>
+                    <span class="ts-badge is-outlined" role="listitem">Prisma 7</span>
+                    <span class="ts-badge is-outlined" role="listitem">PostgreSQL 16</span>
+                    <span class="ts-badge is-outlined" role="listitem">Vite</span>
+                    <span class="ts-badge is-outlined" role="listitem">React 19</span>
+                    <span class="ts-badge is-outlined" role="listitem">Tocas UI</span>
+                    <span class="ts-badge is-outlined" role="listitem">Starlight</span>
+                    <span class="ts-badge is-outlined" role="listitem">Docker</span>
+                    <span class="ts-badge is-outlined" role="listitem">Caddy</span>
+                    <span class="ts-badge is-outlined" role="listitem">GHCR</span>
+                </div>
+                <div class="ts-wrap cluster">
+                    <a class="ts-button is-outlined" href="features.html#architecture">看架構</a>
+                    <a class="ts-button is-outlined" href="https://github.com/Salmon4neko-Studio/S4N-Donate-System-2.0"
                         target="_blank" rel="noopener noreferrer">
                         <i class="fa-brands fa-github" aria-hidden="true"></i> 原始碼
                     </a>
@@ -223,7 +254,7 @@
         </section>
 
         <section class="band-ai" id="ai" aria-label="AI 輔助開發">
-            <div class="wrap">
+            <div class="ts-container">
                 <p>
                     <strong>AI 輔助開發。</strong>
                     S4N DONATE SYSTEM 2.0 有相當比例的程式碼與文件，是在維護者指導與審查下，藉由 AI 輔助開發工具產出。提交前經過人工檢視，但仍可能存在疏漏。請在用於正式環境前自行審查、測試，並依實際需求完成設定。本軟體依 MIT 授權現況提供，不對適用性或無錯誤作出保證。
@@ -233,12 +264,12 @@
     </main>
 
     <footer class="site-footer">
-        <div class="wrap footer-inner">
+        <div class="ts-container footer-inner">
             <a class="footer-logo-link" href="https://salmon4neko.com/" target="_blank" rel="noopener noreferrer">
                 <img src="https://img.uwub.tw/Salmon4neko%20Studio_%E6%A8%99%E6%BA%96%E5%AD%97.png" alt="Salmon4neko Studio 鮭貓工作室" class="footer-logo">
             </a>
             <p class="footer-tagline">開源、自架的實況主贊助平台。</p>
-            <nav class="footer-nav" aria-label="頁尾">
+            <nav class="ts-wrap footer-nav" aria-label="頁尾">
                     <a href="features.html">功能、架構與安全</a>
                     <a href="faq.html">路線與常見問題</a>
                     <a href="deploy.html">自架說明</a>
@@ -259,9 +290,10 @@
                         </svg>
                     </a>
                 </div>
-            <p class="footer-copy">Powered by <a href="https://salmon4neko.com/" target="_blank" rel="noopener noreferrer">Salmon4neko Studio 鮭貓工作室</a> · 軟體採用 <a href="faq.html#license">MIT 授權</a> · 字型 jf open 粉圓 2.1 為 <a href="fonts/OFL.txt">SIL OFL 1.1</a>。</p>
+            <p class="footer-copy">Powered by <a href="https://salmon4neko.com/" target="_blank" rel="noopener noreferrer">Salmon4neko Studio 鮭貓工作室</a> · 軟體採用 <a href="faq.html#license">MIT 授權</a>。</p>
         </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/5.0.2/tocas.min.js"></script>
     <script src="site.js"></script>
 </body>
 
